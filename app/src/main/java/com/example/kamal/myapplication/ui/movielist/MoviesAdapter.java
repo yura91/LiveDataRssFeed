@@ -1,12 +1,18 @@
 package com.example.kamal.myapplication.ui.movielist;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kamal.myapplication.R;
-import com.example.kamal.myapplication.model.MovieModel;
+import com.example.kamal.myapplication.model.pojo.Item;
+import com.squareup.picasso.Picasso;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.util.List;
 
@@ -18,19 +24,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
 
-    private List<MovieModel.DataModel> moviesList;
+    private List<Item> moviesList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name;
+      TextView tvTitle, tvDesc;
+      ImageView background, image;
 
-        public MyViewHolder(View view) {
-            super(view);
-            name = (TextView) view.findViewById(R.id.name);
-        }
+      public MyViewHolder(View itemView) {
+        super(itemView);
+        tvTitle = itemView.findViewById(R.id.tvTitle);
+        tvDesc = itemView.findViewById(R.id.tvDesc);
+        image = itemView.findViewById(R.id.imageImg);
+        background = itemView.findViewById(R.id.imageBackground);
+
+      }
     }
 
 
-    public MoviesAdapter(List<MovieModel.DataModel> moviesList) {
+    public MoviesAdapter(List<Item> moviesList) {
         this.moviesList = moviesList;
     }
 
@@ -44,8 +55,23 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        MovieModel.DataModel movie = moviesList.get(position);
-        holder.name.setText(movie.getName());
+      Document documentT = Jsoup.parse(moviesList.get(position).getTitle());
+      String srcT = documentT.select("img").attr("src");
+      documentT.select("img").remove();
+      String title = documentT.toString();
+      holder.tvTitle.setText(Html.fromHtml(title));
+
+      Document documentD = Jsoup.parse(moviesList.get(position).getDescription());
+      String srcD = documentD.select("img").attr("src");
+      documentD.select("img").remove();
+      String desc = documentD.toString();
+      holder.tvDesc.setText(Html.fromHtml(desc));
+      if (srcD != "" && srcD != null) {
+        Picasso.with(holder.image.getContext()).load(srcD).into(holder.image);
+      }
+      else {
+        holder.image.setImageDrawable(null);
+      }
     }
 
     @Override

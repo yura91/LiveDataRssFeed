@@ -18,7 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.kamal.myapplication.R;
-import com.example.kamal.myapplication.model.MovieModel;
+import com.example.kamal.myapplication.model.pojo.Item;
+import com.example.kamal.myapplication.model.pojo.Rss;
 import com.example.kamal.myapplication.viewModel.MovieListViewModel;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ import java.util.List;
 public class MovieListFragment extends Fragment {
 
     private MovieListViewModel mViewModel;
-    private List<MovieModel.DataModel> movieList = new ArrayList<>();
+    private List<Item> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
 
@@ -58,10 +59,10 @@ public class MovieListFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(MovieListViewModel.class);
         mViewModel.init();
-        mViewModel.getMovies().observe(this, new Observer<MovieModel>() {
+        mViewModel.getMovies().observe(this, new Observer<Rss>() {
             @Override
-            public void onChanged(@Nullable MovieModel movieModels) {
-                movieList.addAll(movieModels.getData());
+            public void onChanged(@Nullable Rss rss) {
+                movieList.addAll(rss.getChannel().getItem());
                 mAdapter.notifyDataSetChanged();
             }
         });

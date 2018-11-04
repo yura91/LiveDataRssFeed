@@ -11,6 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
 /**
  * Created by kamal on 8/2/18.
@@ -18,7 +19,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class ApiClient {
 
-    public static final String URL_BASE= "https://reqres.in";
+    public static final String URL_BASE= "https://habrahabr.ru/rss/";
 
     private static Retrofit retrofit;
 
@@ -48,7 +49,7 @@ public class ApiClient {
             retrofit = builder
                     // .baseUrl(URL_BASE)
                     .addConverterFactory(ScalarsConverterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(SimpleXmlConverterFactory.createNonStrict())
                     .client(httpClient.build())
                     .build();
 

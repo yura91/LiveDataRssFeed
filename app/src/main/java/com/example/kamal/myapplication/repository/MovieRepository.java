@@ -3,7 +3,7 @@ package com.example.kamal.myapplication.repository;
 
 
 
-import com.example.kamal.myapplication.model.MovieModel;
+import com.example.kamal.myapplication.model.pojo.Rss;
 import com.example.kamal.myapplication.network.APIInterface;
 import com.example.kamal.myapplication.network.ApiClient;
 
@@ -25,13 +25,13 @@ public class MovieRepository {
     public MovieRepository() {
     }
 
-    public MutableLiveData<MovieModel> getMovies() {
-        final MutableLiveData<MovieModel> refferAndInvitePojoMutableLiveData = new MutableLiveData<>();
+    public MutableLiveData<Rss> getMovies() {
+        final MutableLiveData<Rss> refferAndInvitePojoMutableLiveData = new MutableLiveData<>();
         apiInterface = ApiClient.getClientAuthentication().create(APIInterface.class);
-        Call<MovieModel> call = apiInterface.getdata();
-        call.enqueue(new Callback<MovieModel>() {
+        Call<Rss> call = apiInterface.getdata();
+        call.enqueue(new Callback<Rss>() {
             @Override
-            public void onResponse(Call<MovieModel> call, Response<MovieModel> response) {
+            public void onResponse(Call<Rss> call, Response<Rss> response) {
                 if(response.body()!=null)
                 {
                     refferAndInvitePojoMutableLiveData.setValue(response.body());
@@ -41,7 +41,7 @@ public class MovieRepository {
             }
 
             @Override
-            public void onFailure(Call<MovieModel> call, Throwable t) {
+            public void onFailure(Call<Rss> call, Throwable t) {
 
             }
         });

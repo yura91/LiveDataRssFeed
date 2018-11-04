@@ -1,6 +1,6 @@
 package com.example.kamal.myapplication.viewModel;
 
-import com.example.kamal.myapplication.model.MovieModel;
+import com.example.kamal.myapplication.model.pojo.Rss;
 import com.example.kamal.myapplication.repository.MovieRepository;
 
 
@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModel;
 
 public class MovieListViewModel extends ViewModel {
     // TODO: Implement the ViewModel
-    private MutableLiveData<MovieModel> data;
+    private MutableLiveData<Rss> data;
     private MovieRepository movieModel;
 
     public MovieListViewModel() {
@@ -30,7 +30,7 @@ public class MovieListViewModel extends ViewModel {
         data = movieModel.getMovies();
     }
 
-    public MutableLiveData<MovieModel> getMovies() {
+    public MutableLiveData<Rss> getMovies() {
         return this.data;
     }
 }
