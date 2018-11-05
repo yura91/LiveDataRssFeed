@@ -1,7 +1,7 @@
 package com.example.kamal.myapplication.viewModel;
 
 import com.example.kamal.myapplication.model.pojo.Rss;
-import com.example.kamal.myapplication.repository.MovieRepository;
+import com.example.kamal.myapplication.repository.RssRepository;
 
 
 
@@ -13,10 +13,10 @@ import androidx.lifecycle.ViewModel;
 public class RssListViewModel extends ViewModel {
     // TODO: Implement the ViewModel
     private MutableLiveData<Rss> data;
-    private MovieRepository movieModel;
+    private RssRepository movieModel;
 
     public RssListViewModel() {
-        movieModel = new MovieRepository();
+        movieModel = new RssRepository();
     }
 
     public void init() {

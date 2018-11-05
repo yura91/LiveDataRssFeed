@@ -15,12 +15,12 @@ import retrofit2.Response;
 
 
 
-public class MovieRepository {
+public class RssRepository {
 
     private APIInterface apiInterface;
 
 
-    public MovieRepository() {
+    public RssRepository() {
     }
 
     public MutableLiveData<Rss> getMovies() {
