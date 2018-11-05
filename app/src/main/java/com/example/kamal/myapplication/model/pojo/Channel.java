@@ -24,8 +24,8 @@ public class Channel
 
     private String lastBuildDate;
 
-    @ElementList(name = "item", required = true, inline = true)
-    private ArrayList<Item> item;
+    @ElementList(name = "items", required = true, inline = true)
+    private ArrayList<Item> items;
 
     private String generator;
 
@@ -93,14 +93,14 @@ public class Channel
         this.lastBuildDate = lastBuildDate;
     }
 
-    public ArrayList<Item> getItem ()
+    public ArrayList<Item> getItems()
     {
-        return item;
+        return items;
     }
 
-    public void setItem (ArrayList<Item> item)
+    public void setItems(ArrayList<Item> items)
     {
-        this.item = item;
+        this.items = items;
     }
 
     public String getGenerator ()
@@ -136,6 +136,6 @@ public class Channel
     @Override
     public String toString()
     {
-        return "ClassPojo [pubDate = "+pubDate+", title = "+title+", managingEditor = "+managingEditor+", description = "+description+", link = "+link+", lastBuildDate = "+lastBuildDate+", item = "+item+", generator = "+generator+", image = "+image+", language = "+language+"]";
+        return "ClassPojo [pubDate = "+pubDate+", title = "+title+", managingEditor = "+managingEditor+", description = "+description+", link = "+link+", lastBuildDate = "+lastBuildDate+", items = "+ items +", generator = "+generator+", image = "+image+", language = "+language+"]";
     }
 }

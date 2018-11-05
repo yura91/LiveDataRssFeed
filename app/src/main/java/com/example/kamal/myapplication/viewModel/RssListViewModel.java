@@ -12,12 +12,12 @@ import androidx.lifecycle.ViewModel;
  * Created by kamal on 8/2/18.
  */
 
-public class MovieListViewModel extends ViewModel {
+public class RssListViewModel extends ViewModel {
     // TODO: Implement the ViewModel
     private MutableLiveData<Rss> data;
     private MovieRepository movieModel;
 
-    public MovieListViewModel() {
+    public RssListViewModel() {
         movieModel = new MovieRepository();
     }
 

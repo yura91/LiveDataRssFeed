@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * Created by kamal on 8/2/18.
  */
 
-public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
+public class RssAdapter extends RecyclerView.Adapter<RssAdapter.MyViewHolder> {
 
     private List<Item> moviesList;
 
@@ -41,7 +41,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     }
 
 
-    public MoviesAdapter(List<Item> moviesList) {
+    public RssAdapter(List<Item> moviesList) {
         this.moviesList = moviesList;
     }
 

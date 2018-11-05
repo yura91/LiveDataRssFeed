@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.kamal.myapplication.ui.movielist.MovieListFragment;
+import com.example.kamal.myapplication.ui.movielist.RssListFragment;
 /**
  * Created by kamal on 8/2/18.
  */
-public class MovieList extends AppCompatActivity {
+public class RssListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class MovieList extends AppCompatActivity {
         setContentView(R.layout.movie_list_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, MovieListFragment.newInstance())
+                    .replace(R.id.container, RssListFragment.newInstance())
                     .commitNow();
         }
     }

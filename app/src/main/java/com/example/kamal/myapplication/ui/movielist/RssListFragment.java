@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 import com.example.kamal.myapplication.R;
 import com.example.kamal.myapplication.model.pojo.Item;
 import com.example.kamal.myapplication.model.pojo.Rss;
-import com.example.kamal.myapplication.viewModel.MovieListViewModel;
+import com.example.kamal.myapplication.viewModel.RssListViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,15 +29,15 @@ import java.util.List;
  * Created by kamal on 8/2/18.
  */
 
-public class MovieListFragment extends Fragment {
+public class RssListFragment extends Fragment {
 
-    private MovieListViewModel mViewModel;
+    private RssListViewModel mViewModel;
     private List<Item> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private MoviesAdapter mAdapter;
+    private RssAdapter mAdapter;
 
-    public static MovieListFragment newInstance() {
-        return new MovieListFragment();
+    public static RssListFragment newInstance() {
+        return new RssListFragment();
     }
 
     @Nullable
@@ -46,7 +46,7 @@ public class MovieListFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.movie_list_fragment, container, false);
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
-        mAdapter = new MoviesAdapter(movieList);
+        mAdapter = new RssAdapter(movieList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -57,12 +57,12 @@ public class MovieListFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(MovieListViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(RssListViewModel.class);
         mViewModel.init();
         mViewModel.getMovies().observe(this, new Observer<Rss>() {
             @Override
             public void onChanged(@Nullable Rss rss) {
-                movieList.addAll(rss.getChannel().getItem());
+                movieList.addAll(rss.getChannel().getItems());
                 mAdapter.notifyDataSetChanged();
             }
         });
