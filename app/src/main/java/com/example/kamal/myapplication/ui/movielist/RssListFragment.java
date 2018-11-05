@@ -25,9 +25,7 @@ import com.example.kamal.myapplication.viewModel.RssListViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by kamal on 8/2/18.
- */
+
 
 public class RssListFragment extends Fragment {
 

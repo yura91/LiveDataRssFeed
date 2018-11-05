@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.kamal.myapplication.ui.movielist.RssListFragment;
-/**
- * Created by kamal on 8/2/18.
- */
+
 public class RssListActivity extends AppCompatActivity {
 
     @Override

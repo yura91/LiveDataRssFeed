@@ -13,9 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
-/**
- * Created by kamal on 8/2/18.
- */
+
 
 public class ApiClient {
 

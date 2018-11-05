@@ -13,9 +13,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by kamal on 8/2/18.
- */
+
 
 public class MovieRepository {
 

@@ -8,9 +8,7 @@ import com.example.kamal.myapplication.repository.MovieRepository;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-/**
- * Created by kamal on 8/2/18.
- */
+
 
 public class RssListViewModel extends ViewModel {
     // TODO: Implement the ViewModel

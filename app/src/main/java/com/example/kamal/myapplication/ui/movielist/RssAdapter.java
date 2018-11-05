@@ -18,9 +18,7 @@ import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * Created by kamal on 8/2/18.
- */
+
 
 public class RssAdapter extends RecyclerView.Adapter<RssAdapter.MyViewHolder> {
 
