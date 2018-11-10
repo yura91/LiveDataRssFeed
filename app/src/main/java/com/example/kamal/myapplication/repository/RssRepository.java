@@ -23,8 +23,8 @@ public class RssRepository {
     public RssRepository() {
     }
 
-    public MutableLiveData<Rss> getMovies() {
-        final MutableLiveData<Rss> refferAndInvitePojoMutableLiveData = new MutableLiveData<>();
+    public MutableLiveData<Rss> getRss() {
+        final MutableLiveData<Rss> rssMutableLiveData = new MutableLiveData<>();
         apiInterface = ApiClient.getData().create(APIInterface.class);
         Call<Rss> call = apiInterface.getdata();
         call.enqueue(new Callback<Rss>() {
@@ -32,7 +32,7 @@ public class RssRepository {
             public void onResponse(Call<Rss> call, Response<Rss> response) {
                 if(response.body()!=null)
                 {
-                    refferAndInvitePojoMutableLiveData.setValue(response.body());
+                    rssMutableLiveData.setValue(response.body());
                 }
 
 
@@ -44,6 +44,6 @@ public class RssRepository {
             }
         });
 
-        return refferAndInvitePojoMutableLiveData;
+        return rssMutableLiveData;
     }
 }

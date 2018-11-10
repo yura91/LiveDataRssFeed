@@ -25,7 +25,7 @@ public class RssListViewModel extends ViewModel {
             // we know the userId won't change
             return;
         }
-        data = movieModel.getMovies();
+        data = movieModel.getRss();
     }
 
     public MutableLiveData<Rss> getMovies() {

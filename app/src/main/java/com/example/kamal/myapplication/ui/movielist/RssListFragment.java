@@ -30,7 +30,7 @@ import java.util.List;
 public class RssListFragment extends Fragment {
 
     private RssListViewModel mViewModel;
-    private List<Item> movieList = new ArrayList<>();
+    private List<Item> rssItemsList = new ArrayList<>();
     private RecyclerView recyclerView;
     private RssAdapter mAdapter;
 
@@ -42,9 +42,9 @@ public class RssListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.movie_list_fragment, container, false);
+        View view= inflater.inflate(R.layout.rss_list_fragment, container, false);
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
-        mAdapter = new RssAdapter(movieList);
+        mAdapter = new RssAdapter(rssItemsList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -60,7 +60,7 @@ public class RssListFragment extends Fragment {
         mViewModel.getMovies().observe(this, new Observer<Rss>() {
             @Override
             public void onChanged(@Nullable Rss rss) {
-                movieList.addAll(rss.getChannel().getItems());
+                rssItemsList.addAll(rss.getChannel().getItems());
                 mAdapter.notifyDataSetChanged();
             }
         });

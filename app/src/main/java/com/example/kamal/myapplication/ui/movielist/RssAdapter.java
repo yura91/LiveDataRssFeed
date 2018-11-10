@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RssAdapter extends RecyclerView.Adapter<RssAdapter.MyViewHolder> {
 
-    private List<Item> moviesList;
+    private List<Item> rssList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
       TextView tvTitle, tvDesc;
@@ -39,27 +39,27 @@ public class RssAdapter extends RecyclerView.Adapter<RssAdapter.MyViewHolder> {
     }
 
 
-    public RssAdapter(List<Item> moviesList) {
-        this.moviesList = moviesList;
+    public RssAdapter(List<Item> rssList) {
+        this.rssList = rssList;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.movie_list_row, parent, false);
+                .inflate(R.layout.rss_list_row, parent, false);
 
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-      Document documentT = Jsoup.parse(moviesList.get(position).getTitle());
+      Document documentT = Jsoup.parse(rssList.get(position).getTitle());
       String srcT = documentT.select("img").attr("src");
       documentT.select("img").remove();
       String title = documentT.toString();
       holder.tvTitle.setText(Html.fromHtml(title));
 
-      Document documentD = Jsoup.parse(moviesList.get(position).getDescription());
+      Document documentD = Jsoup.parse(rssList.get(position).getDescription());
       String srcD = documentD.select("img").attr("src");
       documentD.select("img").remove();
       String desc = documentD.toString();
@@ -74,6 +74,6 @@ public class RssAdapter extends RecyclerView.Adapter<RssAdapter.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return moviesList.size();
+        return rssList.size();
     }
 }
