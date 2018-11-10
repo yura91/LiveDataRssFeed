@@ -25,7 +25,7 @@ public class RssRepository {
 
     public MutableLiveData<Rss> getMovies() {
         final MutableLiveData<Rss> refferAndInvitePojoMutableLiveData = new MutableLiveData<>();
-        apiInterface = ApiClient.getClientAuthentication().create(APIInterface.class);
+        apiInterface = ApiClient.getData().create(APIInterface.class);
         Call<Rss> call = apiInterface.getdata();
         call.enqueue(new Callback<Rss>() {
             @Override
