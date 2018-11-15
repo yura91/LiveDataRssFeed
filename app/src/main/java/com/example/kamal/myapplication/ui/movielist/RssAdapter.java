@@ -1,4 +1,4 @@
-package com.example.kamal.myapplication.ui.movielist;
+package com.example.kamal.myapplication.ui.rsslist;
 
 import android.text.Html;
 import android.view.LayoutInflater;

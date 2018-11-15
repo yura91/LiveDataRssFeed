@@ -13,10 +13,10 @@ import androidx.lifecycle.ViewModel;
 public class RssListViewModel extends ViewModel {
     // TODO: Implement the ViewModel
     private MutableLiveData<Rss> data;
-    private RssRepository movieModel;
+    private RssRepository rssModel;
 
     public RssListViewModel() {
-        movieModel = new RssRepository();
+        rssModel = new RssRepository();
     }
 
     public void init() {
@@ -25,7 +25,7 @@ public class RssListViewModel extends ViewModel {
             // we know the userId won't change
             return;
         }
-        data = movieModel.getRss();
+        data = rssModel.getRss();
     }
 
     public MutableLiveData<Rss> getRss() {

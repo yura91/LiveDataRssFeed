@@ -1,4 +1,4 @@
-package com.example.kamal.myapplication.ui.movielist;
+package com.example.kamal.myapplication.ui.rsslist;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
