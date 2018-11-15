@@ -57,7 +57,7 @@ public class RssListFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(RssListViewModel.class);
         mViewModel.init();
-        mViewModel.getMovies().observe(this, new Observer<Rss>() {
+        mViewModel.getRss().observe(this, new Observer<Rss>() {
             @Override
             public void onChanged(@Nullable Rss rss) {
                 rssItemsList.addAll(rss.getChannel().getItems());

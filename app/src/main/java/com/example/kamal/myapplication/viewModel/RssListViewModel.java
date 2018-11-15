@@ -28,7 +28,7 @@ public class RssListViewModel extends ViewModel {
         data = movieModel.getRss();
     }
 
-    public MutableLiveData<Rss> getMovies() {
+    public MutableLiveData<Rss> getRss() {
         return this.data;
     }
 }
